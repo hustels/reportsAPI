@@ -18,7 +18,8 @@ var AppComponent = (function () {
             moduleId: module.id,
             selector: 'my-app',
             //template: `<reports> </reports>`,
-            templateUrl: './components/templates/app.component.html'
+            templateUrl: './components/templates/app.component.html',
+            styleUrls: ['./app.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

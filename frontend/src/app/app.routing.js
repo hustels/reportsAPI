@@ -4,7 +4,7 @@ var user_component_1 = require('./components/user.component');
 var reports_component_1 = require('./components/reports.component');
 var appRoutes = [
     {
-        path: 'user',
+        path: 'user/profile',
         component: user_component_1.UserComponent
     },
     {

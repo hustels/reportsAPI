@@ -10,7 +10,7 @@ import { AppComponent } from './app.component'
 
 const appRoutes: Routes = [
 	{
-		path: 'user',
+		path: 'user/profile',
 		component: UserComponent
 
 	},
