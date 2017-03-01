@@ -1,28 +1,135 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Reports API</title>
     <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <base href="/">
     <link rel="stylesheet" href="styles.css">
-
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
-
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-
     <script src="systemjs.config.js"></script>
     <script>
-      System.import('main.js').catch(function(err){ console.error(err); });
+    System.import('main.js').catch(function(err) {
+        console.error(err);
+    });
     </script>
-  </head>
-
-  <body>
-
-    <my-app>Reports API ...</my-app>
+    <style type="text/css">
+    .top_bar {
+        min-height: 40px;
+        /* 
+        background: #30bed6; /* Old browsers */
+        background: -moz-linear-gradient(left, #30bed6 0%, #38cac9 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #30bed6 0%, #38cac9 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #30bed6 0%, #38cac9 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#30bed6', endColorstr='#38cac9', GradientType=1);
+        /* IE6-9 */
+    }
     
-  </body>
+    .social {
+        list-style-type: none;
+        margin-bottom: 0px;
+        float: left;
+        padding: 0px;
+        margin-left: 0px;
+    }
+    
+    .social li {
+        float: left;
+    }
+    
+    .social li a {
+        padding: 0 10px;
+        font-size: 13px;
+        line-height: 40px;
+        color: #FFF;
+    }
+    
+    .rightc {
+        list-style-type: none;
+        margin-bottom: 0px;
+        float: right;
+    }
+    
+    .rightc li {
+        margin: 0px 10px;
+        font-size: 13px;
+        float: left;
+        line-height: 40px;
+        color: #FFF;
+    }
+    
+    .rightc li a {
+        color: #FFF;
+    }
+    
+    .navbar-brand img {
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+    
+    .navbar-brand {
+        padding: 0px;
+    }
+    
+    .header_image {
+        margin-top: -70px;
+        float: left;
+    }
+    
+    .nav.navbar-nav.navbar-right span {
+        font-family: 'Open Sans', sans-serif;
+        font-style: italic;
+        font-weight: 300;
+        color: #1b6977;
+    }
+    
+    .navbar-right li a {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        color: #1b6977 !important;
+    }
+    </style>
+</head>
+
+<body class="container">
+    <my-app>Reports API ...</my-app>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".dropdown").hover(
+
+            function() {
+
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("fast");
+
+                $(this).toggleClass('open');
+
+            },
+
+            function() {
+
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("fast");
+
+                $(this).toggleClass('open');
+
+            }
+
+        );
+
+    });
+    </script>
+</body>
+
 </html>

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   //template: `<reports> </reports>`,
    templateUrl: './components/templates/app.component.html',
-   styleUrls: ['./app.component.css']
+   styleUrls: ['./components/css/app.component.css']
 
 })
 export class AppComponent  { name = 'Angular'; }
