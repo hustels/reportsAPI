@@ -1,0 +1,39 @@
+db.reports.insert({
+	environment:  'Televent',
+	date: '01/02/2017 10:55:06',
+	session:  '04-56',
+	specification:  'Windows_Semanal',
+	hostfilesystem: 'ESDC!SVP00944',
+	incident: 'IM0000033636',
+	link: 'wwww.service.org',
+	endok:  true,
+	notes:  'Al relanzar termina correctamente'
+})
+
+
+
+
+db.reports.insert({
+	environment:  'Vicalvaro',
+	date: '01/02/2017 10:55:06',
+	session:  '04-56',
+	specification:  'Linux_Mensual',
+	hostfilesystem: 'ESDC!SVP00566',
+	incident: 'IM000003363645',
+	link: 'wwww.service.org',
+	endok:  false,
+	notes:  'Al relanzar termina con errores por lo que escalamos'
+})
+
+
+db.reports.insert({
+	environment:  'Acoruña',
+	date: '01/02/2016 10:55:06',
+	session:  '06-53',
+	specification:  'Linux_Mensual_Pares',
+	hostfilesystem: 'ESDC!SVP00522',
+	incident: 'IM0000033636444',
+	link: 'wwww.service.org',
+	endok:  false,
+	notes:  'Falla por timeout'
+})
