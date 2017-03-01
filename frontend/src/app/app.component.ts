@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   //template: `<reports> </reports>`,
    templateUrl: './components/templates/app.component.html'
+
 })
 export class AppComponent  { name = 'Angular'; }
