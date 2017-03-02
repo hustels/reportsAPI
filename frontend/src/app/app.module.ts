@@ -1,15 +1,18 @@
 import { NgModule }      from '@angular/core';
+import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpModule } from '@angular/http'
+import { AddReportComponent } from './components/addreport.component'
 import { UserComponent } from './components/user.component';
 import { LdapService } from './services/ldap.service';
-import { AppComponent }  from './app.component';
 import { ReportComponent } from './components/reports.component'
+import { AppComponent }  from './app.component'
+
 import { routing } from './app.routing'
 
 @NgModule({
-  imports:      [ BrowserModule ,  HttpModule, routing ],
-  declarations: [ AppComponent , ReportComponent , UserComponent],
+  imports:      [ BrowserModule ,  HttpModule, routing, FormsModule  ],
+  declarations: [ AppComponent , ReportComponent , UserComponent , AddReportComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

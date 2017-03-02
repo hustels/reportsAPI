@@ -1,0 +1,31 @@
+<h1>Add report</h1>
+<form (submit)="addReport(environment.value , date.value , session.value , specification.value , hostfilesystem.value , incident.value , link.value , endok.value , notes.value)">
+
+
+	<!-- <input type="text"  name="environment" [(ngModel)]="environment"> <br>-->
+	<input type="text"  #environment ><br>
+
+	<input type="date"  #date > <br>
+
+
+	<input type="text"  #session> <br>
+
+
+	<input type="text" #specification> <br>
+
+	<input type="text"  #hostfilesystem> <br>
+
+	<input type="text"  #incident> <br>
+
+
+	<input type="text"  #link > <br>
+
+
+	<input type="text"  #endok > <br>
+
+	<input type="text"  #notes > <br>
+
+	<input type="submit" name="" value="Add report">
+
+</form>
+

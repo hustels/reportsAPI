@@ -4,7 +4,8 @@ import { Routes , RouterModule } from '@angular/router'
 
 import { UserComponent } from './components/user.component'
 import { ReportComponent } from './components/reports.component'
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
+import { AddReportComponent } from './components/addreport.component';
 
 
 
@@ -19,6 +20,11 @@ const appRoutes: Routes = [
 	{
 		path: 'reports',
 		component: ReportComponent
+	},
+
+	{
+	path: 'reports/add',
+		component: AddReportComponent
 	}
 	
 ];

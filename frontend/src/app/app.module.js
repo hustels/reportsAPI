@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
+var addreport_component_1 = require('./components/addreport.component');
 var user_component_1 = require('./components/user.component');
-var app_component_1 = require('./app.component');
 var reports_component_1 = require('./components/reports.component');
+var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent, reports_component_1.ReportComponent, user_component_1.UserComponent],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routing_1.routing, forms_1.FormsModule],
+            declarations: [app_component_1.AppComponent, reports_component_1.ReportComponent, user_component_1.UserComponent, addreport_component_1.AddReportComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
