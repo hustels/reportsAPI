@@ -1,3 +1,4 @@
+var cors = require('cors');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -6,6 +7,7 @@ var mongoose = require('mongoose');
 var Report = require('./Report.model');
 var db = 'mongodb://localhost/bkreports';
 
+app.use(cors());
 mongoose.connect(db);
 
 var port = 8080;
@@ -47,6 +49,14 @@ app.get('/report/:id' , function(req , res){
 
 
 	});
+
+})
+
+
+// add report
+app.post('/reports/add' , function(req , res){
+
+	res.send('Adding report from the backed');
 
 })
 
