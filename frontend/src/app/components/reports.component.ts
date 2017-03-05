@@ -18,13 +18,57 @@ export class ReportComponent{
 
 	constructor(private reportsService:  ReportService)
 	{
-		alert('ready again');
+		setTimeout( this.drawReportsTable, 1000);
+		//this.drawReportsTable();
+
 		this.reportsService.getReports()
 		.subscribe(reports =>{
 			this.reports = reports;
 			//console.log(reports);
-		})
+		}) 
 
+		//this.drawReportsTable();
+
+	}
+
+	drawReportsTable(){
+		$('#ReportTableContainer').jtable({
+			ajaxSettings: {
+		    type: 'GET',
+		    dataType: 'json',
+		    headers: {'Access-Control-Allow-Origin': '*' },
+				}
+			,
+            title: 'Report table',
+            actions: {
+                listAction: 'http://localhost:8080/reports',
+                /*createAction: '/GettingStarted/CreatePerson',
+                updateAction: '/GettingStarted/UpdatePerson',
+                deleteAction: '/GettingStarted/DeletePerson'
+                */
+            },
+            fields: {
+                _id: {
+                    key: true,
+                    list: false
+                },
+                date: {
+                    title: 'date',
+                    width: '40%'
+                },
+                environment: {
+                    title: 'Entorno',
+                    width: '20%'
+                },
+                session: {
+                    title: 'Session',
+                    width: '30%',
+                    create: false,
+                    edit: false
+                }
+            }
+        });
+		$('#ReportTableContainer').jtable('load');
 	}
 }
 

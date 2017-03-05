@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var ldap_service_1 = require('../services/ldap.service');
+var core_1 = require("@angular/core");
+var ldap_service_1 = require("../services/ldap.service");
 var UserComponent = (function () {
     function UserComponent(userservice) {
         this.userservice = userservice;
@@ -19,15 +19,15 @@ var UserComponent = (function () {
             console.log(userinfo);
         });
     }
-    UserComponent = __decorate([
-        core_1.Component({
-            selector: 'user',
-            template: "<h3> user component </h3>",
-            providers: [ldap_service_1.LdapService]
-        }), 
-        __metadata('design:paramtypes', [ldap_service_1.LdapService])
-    ], UserComponent);
     return UserComponent;
 }());
+UserComponent = __decorate([
+    core_1.Component({
+        selector: 'user',
+        template: "<h3> user component </h3>",
+        providers: [ldap_service_1.LdapService]
+    }),
+    __metadata("design:paramtypes", [ldap_service_1.LdapService])
+], UserComponent);
 exports.UserComponent = UserComponent;
 //# sourceMappingURL=user.component.js.map

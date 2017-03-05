@@ -22,6 +22,7 @@ export class AddReportComponent{
 			console.log(environment  +  date + session + specification + 
 				hostfilesystem +  incident + link +  endok + notes);
 			*/
+			/*
 
 			if($('#endok').is(":checked")){
 				this.endok = 'SI';
@@ -29,6 +30,7 @@ export class AddReportComponent{
 				this.endok = 'NO';
 			}
 			console.log(this.endok);
+			*/
 			
 			this.addreportservice.saveReport(environment , date , session , specification , 
 			hostfilesystem , incident  , this.endok , notes)

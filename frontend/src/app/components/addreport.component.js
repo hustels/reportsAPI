@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var addreport_service_1 = require('../services/addreport.service');
+var core_1 = require("@angular/core");
+var addreport_service_1 = require("../services/addreport.service");
 var AddReportComponent = (function () {
     function AddReportComponent(addreportservice) {
         this.addreportservice = addreportservice;
@@ -21,28 +21,30 @@ var AddReportComponent = (function () {
         console.log(environment  +  date + session + specification +
             hostfilesystem +  incident + link +  endok + notes);
         */
-        if ($('#endok').is(":checked")) {
+        /*
+
+        if($('#endok').is(":checked")){
             this.endok = 'SI';
-        }
-        else {
+        }else{
             this.endok = 'NO';
         }
         console.log(this.endok);
+        */
         this.addreportservice.saveReport(environment, date, session, specification, hostfilesystem, incident, this.endok, notes)
             .subscribe(function (response) {
             console.log(response);
         });
     };
-    AddReportComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'add-report',
-            templateUrl: './templates/addreport.component.html',
-            providers: [addreport_service_1.AddReportService]
-        }), 
-        __metadata('design:paramtypes', [addreport_service_1.AddReportService])
-    ], AddReportComponent);
     return AddReportComponent;
 }());
+AddReportComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'add-report',
+        templateUrl: './templates/addreport.component.html',
+        providers: [addreport_service_1.AddReportService]
+    }),
+    __metadata("design:paramtypes", [addreport_service_1.AddReportService])
+], AddReportComponent);
 exports.AddReportComponent = AddReportComponent;
 //# sourceMappingURL=addreport.component.js.map
