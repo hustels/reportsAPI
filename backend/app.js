@@ -8,6 +8,10 @@ var Report = require('./Report.model');
 var db = 'mongodb://localhost/bkreports';
 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json());
+
 mongoose.connect(db);
 
 var port = 8080;
@@ -55,6 +59,29 @@ app.get('/report/:id' , function(req , res){
 
 // add report
 app.post('/reports/add' , function(req , res){
+	console.log(req.body.endok);
+	/*
+	Report.insertMany({
+	environment:  req.body.enivironment,
+	date: req.body.date,
+	session:  req.body.session,
+	specification:  req.body.specification,
+	hostfilesystem: req.body.hostfilesystem,
+	incident: req.body.incident,
+	//link: req.body.link,
+	endok:  req.body.endok,
+	notes:  req.body.notes
+	}, function(err , docs){
+		if(err){
+			console.log(err);
+		}else{
+			//console.log(docs);
+		}
+
+	})
+	
+	*/
+	
 
 	res.send('Adding report from the backed');
 

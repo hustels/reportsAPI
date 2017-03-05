@@ -10,7 +10,7 @@ var ReportSchema = new Schema({
 	hostfilesystem: String,
 	incident: String,
 	link: String,
-	endok:  Boolean,
+	endok:  String,
 	notes:  String
 
 
