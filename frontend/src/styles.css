@@ -4,3 +4,35 @@ h1 {
   font-size: 250%;
 }
 
+
+body {
+	 /* background: #D3D8E8; */
+	 background: #f5f8fa;
+}
+
+#form-report-container{
+	 background: #fff;
+
+
+	
+}
+
+
+#page-container{
+	background: #fff;
+}
+
+#home-icon{
+	color: #66757f;
+	font-size: 1.3em;
+}
+
+#nav-list > li > a{
+	font-size: 14px;
+	font-family: verdana;
+}
+
+#dropdown-nav-list > li > a{
+	font-size: 14px !important;
+	font-family: verdana;
+}

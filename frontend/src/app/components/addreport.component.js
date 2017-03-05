@@ -13,14 +13,22 @@ var addreport_service_1 = require('../services/addreport.service');
 var AddReportComponent = (function () {
     function AddReportComponent(addreportservice) {
         this.addreportservice = addreportservice;
-        //console.log('Add reports');
+        //console.log('Add reports compoenent');
     }
-    AddReportComponent.prototype.addReport = function (environment, date, session, specification, hostfilesystem, incident, link, endok, notes) {
+    AddReportComponent.prototype.addReport = function (environment, date, session, specification, hostfilesystem, incident, endok, notes) {
+        //this.endok = $('#endok').is(":checked") ? 'SI' : 'NO';
         /*
         console.log(environment  +  date + session + specification +
             hostfilesystem +  incident + link +  endok + notes);
         */
-        this.addreportservice.saveReport(environment, date, session, specification, hostfilesystem, incident, link, endok, notes)
+        if ($('#endok').is(":checked")) {
+            this.endok = 'SI';
+        }
+        else {
+            this.endok = 'NO';
+        }
+        console.log(this.endok);
+        this.addreportservice.saveReport(environment, date, session, specification, hostfilesystem, incident, this.endok, notes)
             .subscribe(function (response) {
             console.log(response);
         });

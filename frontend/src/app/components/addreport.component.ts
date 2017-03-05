@@ -10,18 +10,28 @@ import { AddReportService }  from '../services/addreport.service'
 
 
 export class AddReportComponent{
+	endok:  string;
 	constructor(private addreportservice:  AddReportService){
-		//console.log('Add reports');
+		//console.log('Add reports compoenent');
 	}
 
-	addReport(environment , date , session , specification , 
-			hostfilesystem , incident , link , endok , notes ){
+	addReport(environment: string , date:string , session:string , specification:string , 
+			hostfilesystem:string , incident:string ,  endok:string , notes:string ){
+			//this.endok = $('#endok').is(":checked") ? 'SI' : 'NO';
 			/*
 			console.log(environment  +  date + session + specification + 
 				hostfilesystem +  incident + link +  endok + notes);
 			*/
+
+			if($('#endok').is(":checked")){
+				this.endok = 'SI';
+			}else{
+				this.endok = 'NO';
+			}
+			console.log(this.endok);
+			
 			this.addreportservice.saveReport(environment , date , session , specification , 
-			hostfilesystem , incident , link , endok , notes)
+			hostfilesystem , incident  , this.endok , notes)
 			.subscribe(response => {
 				console.log(response);
 			})

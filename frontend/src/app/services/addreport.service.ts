@@ -17,12 +17,19 @@ export class AddReportService{
 		
 	}
 	saveReport(environment:string , date:string , session:string , specification:string , 
-			hostfilesystem:string , incident:string , link :string, endok :string, notes:string){
+			hostfilesystem:string , incident:string , endok :string, notes:string){
 
 		this.url = 'http://localhost:8080/reports/add';
 
 		return this.http.post(this.url , {
-			environment: environment
+			environment: environment,
+			date: date,
+			session: session,
+			specification: specification,
+			hostfilesystem:  hostfilesystem,
+			incident: incident,
+			endok:  endok,
+			notes: notes
 		});
 	}
 }

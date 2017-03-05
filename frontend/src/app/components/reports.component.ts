@@ -18,10 +18,11 @@ export class ReportComponent{
 
 	constructor(private reportsService:  ReportService)
 	{
+		alert('ready again');
 		this.reportsService.getReports()
 		.subscribe(reports =>{
 			this.reports = reports;
-			console.log(reports);
+			//console.log(reports);
 		})
 
 	}

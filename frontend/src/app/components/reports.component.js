@@ -14,10 +14,11 @@ var ReportComponent = (function () {
     function ReportComponent(reportsService) {
         var _this = this;
         this.reportsService = reportsService;
+        alert('ready again');
         this.reportsService.getReports()
             .subscribe(function (reports) {
             _this.reports = reports;
-            console.log(reports);
+            //console.log(reports);
         });
     }
     ReportComponent = __decorate([

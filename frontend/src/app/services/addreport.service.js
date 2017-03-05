@@ -16,10 +16,17 @@ var AddReportService = (function () {
         this.http = http;
         console.log('Report service initilize...');
     }
-    AddReportService.prototype.saveReport = function (environment, date, session, specification, hostfilesystem, incident, link, endok, notes) {
+    AddReportService.prototype.saveReport = function (environment, date, session, specification, hostfilesystem, incident, endok, notes) {
         this.url = 'http://localhost:8080/reports/add';
         return this.http.post(this.url, {
-            environment: environment
+            environment: environment,
+            date: date,
+            session: session,
+            specification: specification,
+            hostfilesystem: hostfilesystem,
+            incident: incident,
+            endok: endok,
+            notes: notes
         });
     };
     AddReportService = __decorate([
