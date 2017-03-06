@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { ReportService } from '../services/reports.service'
-
+import { ReportActionsService} from '../services/reports.actions.service';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { ReportService } from '../services/reports.service'
 	selector: 'reports',
 	templateUrl: './templates/reports.component.html',
 	//styleUrls: ['./app.component.css']
-	providers: [ReportService]
+	providers: [ReportService , ReportActionsService]
 })
 
 
@@ -16,10 +16,11 @@ export class ReportComponent{
 
 	reports:  ReportInterface;
 
-	constructor(private reportsService:  ReportService)
+	constructor(private reportsService:  ReportService , private reportacionts:  ReportActionsService)
 	{
-		setTimeout( this.drawReportsTable, 1000);
-		//this.drawReportsTable();
+		setTimeout( this.reportacionts.drawReportsTable, 100);
+		
+		//this.reportacionts.drawReportsTable();
 
 		this.reportsService.getReports()
 		.subscribe(reports =>{
@@ -31,45 +32,7 @@ export class ReportComponent{
 
 	}
 
-	drawReportsTable(){
-		$('#ReportTableContainer').jtable({
-			ajaxSettings: {
-		    type: 'GET',
-		    dataType: 'json',
-		    headers: {'Access-Control-Allow-Origin': '*' },
-				}
-			,
-            title: 'Report table',
-            actions: {
-                listAction: 'http://localhost:8080/reports',
-                /*createAction: '/GettingStarted/CreatePerson',
-                updateAction: '/GettingStarted/UpdatePerson',
-                deleteAction: '/GettingStarted/DeletePerson'
-                */
-            },
-            fields: {
-                _id: {
-                    key: true,
-                    list: false
-                },
-                date: {
-                    title: 'date',
-                    width: '40%'
-                },
-                environment: {
-                    title: 'Entorno',
-                    width: '20%'
-                },
-                session: {
-                    title: 'Session',
-                    width: '30%',
-                    create: false,
-                    edit: false
-                }
-            }
-        });
-		$('#ReportTableContainer').jtable('load');
-	}
+
 }
 
 

@@ -8,14 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var reports_service_1 = require("../services/reports.service");
+var core_1 = require('@angular/core');
+var reports_service_1 = require('../services/reports.service');
+var reports_actions_service_1 = require('../services/reports.actions.service');
 var ReportComponent = (function () {
-    function ReportComponent(reportsService) {
+    function ReportComponent(reportsService, reportacionts) {
         var _this = this;
         this.reportsService = reportsService;
-        setTimeout(this.drawReportsTable, 1000);
-        //this.drawReportsTable();
+        this.reportacionts = reportacionts;
+        setTimeout(this.reportacionts.drawReportsTable, 100);
+        //this.reportacionts.drawReportsTable();
         this.reportsService.getReports()
             .subscribe(function (reports) {
             _this.reports = reports;
@@ -23,51 +25,17 @@ var ReportComponent = (function () {
         });
         //this.drawReportsTable();
     }
-    ReportComponent.prototype.drawReportsTable = function () {
-        $('#ReportTableContainer').jtable({
-            ajaxSettings: {
-                type: 'GET',
-                dataType: 'json',
-                headers: { 'Access-Control-Allow-Origin': '*' },
-            },
-            title: 'Report table',
-            actions: {
-                listAction: 'http://localhost:8080/reports',
-            },
-            fields: {
-                _id: {
-                    key: true,
-                    list: false
-                },
-                date: {
-                    title: 'date',
-                    width: '40%'
-                },
-                environment: {
-                    title: 'Entorno',
-                    width: '20%'
-                },
-                session: {
-                    title: 'Session',
-                    width: '30%',
-                    create: false,
-                    edit: false
-                }
-            }
-        });
-        $('#ReportTableContainer').jtable('load');
-    };
+    ReportComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'reports',
+            templateUrl: './templates/reports.component.html',
+            //styleUrls: ['./app.component.css']
+            providers: [reports_service_1.ReportService, reports_actions_service_1.ReportActionsService]
+        }), 
+        __metadata('design:paramtypes', [reports_service_1.ReportService, reports_actions_service_1.ReportActionsService])
+    ], ReportComponent);
     return ReportComponent;
 }());
-ReportComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'reports',
-        templateUrl: './templates/reports.component.html',
-        //styleUrls: ['./app.component.css']
-        providers: [reports_service_1.ReportService]
-    }),
-    __metadata("design:paramtypes", [reports_service_1.ReportService])
-], ReportComponent);
 exports.ReportComponent = ReportComponent;
 //# sourceMappingURL=reports.component.js.map

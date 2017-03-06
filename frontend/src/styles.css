@@ -36,3 +36,17 @@ body {
 	font-size: 14px !important;
 	font-family: verdana;
 }
+
+.ui-widget-content{
+	min-width: 500px;
+}
+
+
+#Edit-notes {
+	width: 450px;
+	height: 40px;
+	font-family: verdana;
+}
+
+
+
