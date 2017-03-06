@@ -1,13 +1,16 @@
 db.reports.insert({
-	environment:  'Televent',
+	environment:  'Barcelona',
 	date: '01/02/2017 10:55:06',
 	session:  '04-56',
-	specification:  'Windows_Semanal',
-	hostfilesystem: 'ESDC!SVP00944',
-	incident: 'IM0000033636',
+	specification:  'Linux_prod_diario',
+	hostfilesystem: 'ESDC!SVP005566',
+	type: 'Full',
+	reprocessed: 'Si',
+	newsession: '05-80',
+	incident: 'IM000004555',
 	link: 'wwww.service.org',
-	endok:  true,
-	notes:  'Al relanzar termina correctamente'
+	endok:  'S',
+	notes:  'Tras relanzar mas de dos veces termina correctamente'
 })
 
 
