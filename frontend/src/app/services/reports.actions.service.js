@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ReportActionsService = (function () {
     function ReportActionsService() {
     }
@@ -23,11 +24,11 @@ var ReportActionsService = (function () {
                 },
                 environment: {
                     title: 'Entorno',
-                    width: '6%',
+                    width: '4%',
                     options: { 'Televent': 'Televent', 'Global': 'Global', 'Barcelona': 'Barcelona' }
                 },
                 date: {
-                    title: 'date',
+                    title: 'Fecha',
                     width: '12%'
                 },
                 session: {
@@ -36,15 +37,15 @@ var ReportActionsService = (function () {
                 },
                 specification: {
                     title: 'Especificación',
-                    width: '20%',
+                    width: '15%',
                 },
                 hostfilesystem: {
                     title: 'Host / FS',
-                    width: '17%'
+                    width: '8%'
                 },
                 type: {
                     title: 'Tipo',
-                    width: '4%'
+                    width: '3%'
                 },
                 reprocessed: {
                     title: 'Relanzado?',
@@ -53,11 +54,11 @@ var ReportActionsService = (function () {
                 },
                 newsession: {
                     title: 'Nueva Session',
-                    width: '5%',
+                    width: '7%',
                 },
                 incident: {
                     title: 'Incidencia',
-                    width: '10%'
+                    width: '6%'
                 },
                 endok: {
                     title: 'Fin ok?',
