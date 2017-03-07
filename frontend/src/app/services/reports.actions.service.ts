@@ -2,6 +2,15 @@ export class ReportActionsService {
 
 		drawReportsTable(){
 		(<any>$('#ReportTableContainer')).jtable({
+            toolbar: {
+            items: [{
+                icon: '/app/static/images/excel.png',
+                text: 'Exportar a Excel',
+                click: function () {
+                    alert('clicked');
+                }
+            }]
+        },
 			ajaxSettings: {
 		    type: 'POST',
 		    dataType: 'json',

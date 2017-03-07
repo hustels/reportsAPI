@@ -5,6 +5,15 @@ var ReportActionsService = (function () {
     }
     ReportActionsService.prototype.drawReportsTable = function () {
         $('#ReportTableContainer').jtable({
+            toolbar: {
+                items: [{
+                        icon: '/app/static/images/excel.png',
+                        text: 'Exportar a Excel',
+                        click: function () {
+                            alert('clicked');
+                        }
+                    }]
+            },
             ajaxSettings: {
                 type: 'POST',
                 dataType: 'json',
