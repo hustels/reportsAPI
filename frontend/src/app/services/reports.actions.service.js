@@ -1,11 +1,10 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ReportActionsService = (function () {
     function ReportActionsService() {
     }
     ReportActionsService.prototype.drawReportsTable = function () {
         $('#ReportTableContainer').jtable({
-            //paging: true, //Enable paging
-            //pageSize: 5,
             //sorting: true, //Enable sorting
             //defaultSorting: 'date ASC', //Set default sorting
             //defaultSorting: 'date',
@@ -24,6 +23,11 @@ var ReportActionsService = (function () {
                 headers: { 'Access-Control-Allow-Origin': '*' },
             },
             title: 'Report table',
+            paging: true,
+            pageSize: 5,
+            selecting: true,
+            selectingCheckboxes: true,
+            multiselect: true,
             actions: {
                 listAction: 'http://localhost:8080/reports',
                 createAction: 'http://localhost:8080/reports/add',

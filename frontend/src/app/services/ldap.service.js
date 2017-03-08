@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var http_1 = require('@angular/http');
-var core_1 = require('@angular/core');
-require('rxjs/add/operator/map');
+Object.defineProperty(exports, "__esModule", { value: true });
+var http_1 = require("@angular/http");
+var core_1 = require("@angular/core");
+require("rxjs/add/operator/map");
 var LdapService = (function () {
     function LdapService(http) {
         this.http = http;
@@ -22,11 +23,11 @@ var LdapService = (function () {
         return this.http.get(this.url + this.port + this.resource_path)
             .map(function (response) { return response.json(); });
     };
-    LdapService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], LdapService);
     return LdapService;
 }());
+LdapService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], LdapService);
 exports.LdapService = LdapService;
 //# sourceMappingURL=ldap.service.js.map

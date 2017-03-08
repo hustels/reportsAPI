@@ -2,8 +2,7 @@ export class ReportActionsService {
 
 		drawReportsTable(){
 		(<any>$('#ReportTableContainer')).jtable({
-            //paging: true, //Enable paging
-            //pageSize: 5,
+          
             //sorting: true, //Enable sorting
             //defaultSorting: 'date ASC', //Set default sorting
 
@@ -24,6 +23,11 @@ export class ReportActionsService {
 				}
 			,
             title: 'Report table',
+            paging: true, //Enable paging
+            pageSize: 5,
+            selecting:  true,
+            selectingCheckboxes: true,
+            multiselect: true,
             actions: {
                 listAction: 'http://localhost:8080/reports',
                 createAction: 'http://localhost:8080/reports/add',
