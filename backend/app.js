@@ -24,20 +24,11 @@ app.get('/' , function(req , res){
 
 
 app.post('/reports' , function(req , res){
-
+	
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "X-Requested-With");
-	/*
-	Report.find({}).exec(function(err , reports){
-		if(err){
-			res.send('An error was thrown');
-		}else{
-			res.json(reports);
-		}
 
-
-	});
-	*/
+	if (typeof(req.query.jtStartIndex ) != undefined && typeof(req.query.jtPageSize != undefined)){		
 	var query = Report.find({})
 	.select('_id')
 	.select('environment')
@@ -50,18 +41,25 @@ app.post('/reports' , function(req , res){
 	.select('newsession')
 	.select('incident')
 	.select('endok')
-	.select('notes');
+	.select('notes').skip(parseInt(req.query.jtStartIndex)).limit(parseInt(req.query.jtPageSize ));
+	}
 
     query.exec(function (err, rows) {
     	//var dataset = rows;
     	var dataset = {};
 
-    	
-    	dataset.Result = "OK";
-    	dataset.Records = rows;
+          	var total = Report.count();
+        	total.exec(function(err , count){
+        	var  jtPageSize = req.query.jtPageSize;
+    		var jtStartIndex =  req.query.jtStartIndex;
+        	dataset.Result = "OK";
+        	dataset.jtStartIndex = jtStartIndex;
+    		dataset.jtPageSize = jtPageSize;
+    		dataset.TotalRecordCount = count;
+    		dataset.Records = rows;
 
-        if (err) return next(err);
-        res.send(dataset);
+        	res.send(dataset);
+        })
     });
 
 })
@@ -150,7 +148,7 @@ app.post('/reports/add' , function(req , res){
 // udpate record
 
 app.post('/reports/update' , function(req , res){
-	console.log('la nueva es ' + req.body.newsession);
+
 	Report.findOne({ _id: req.body._id }, function (err, doc){
 	
 

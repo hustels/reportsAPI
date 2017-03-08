@@ -24,19 +24,23 @@ app.get('/' , function(req , res){
 
 
 app.post('/reports' , function(req , res){
-
+	
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	/*
+	Report.find({}).exec(function(err , reports){
+		if(err){
+			res.send('An error was thrown');
+		}else{
+			res.json(reports);
+		}
 
-	 if(typeof(req.body.jtStartIndex ) != undefined && typeof(req.body.jtPageSize != undefined)){
-    		//console.log("page size : " +  req.query.jtPageSize);
-    		var  jtPageSize = req.query.jtPageSize;
-    		var jtStartIndex =  req.body.jtStartIndex;
-    		//console.log("start index : " +  req.body.jtStartIndex);
 
-    	}
-
-
+	});
+	*/
+	if (typeof(req.query.jtStartIndex ) != undefined && typeof(req.query.jtPageSize != undefined)){
+		console.log('first block of if ' + req.query.jtStartIndex +  '--'+ req.query.jtPageSize);
+		
 	var query = Report.find({})
 	.select('_id')
 	.select('environment')
@@ -49,27 +53,48 @@ app.post('/reports' , function(req , res){
 	.select('newsession')
 	.select('incident')
 	.select('endok')
-	.select('notes').skip(jtStartIndex).limit(jtPageSize);
-
+	.select('notes').skip(parseInt(req.query.jtStartIndex)).limit(parseInt(req.query.jtPageSize ));
+	}
+	/*
+	else{
+		console.log('second  block of if ' + req.query.jtStartIndex +  '--'+ req.query.jtPageSize);
+	var query = Report.find({})
+		.select('_id')
+		.select('environment')
+		.select('session')
+		.select('specification')
+		.select('date')
+		.select('hostfilesystem')
+		.select('type')
+		.select('reprocessed')
+		.select('newsession')
+		.select('incident')
+		.select('endok')
+		.select('notes').skip(parseInt(req.query.jtStartIndex)).limit(parseInt(req.query.jtPageSize ));
+	}
+	*/
     query.exec(function (err, rows) {
     	//var dataset = rows;
     	var dataset = {};
-    	//db.reports.find().skip(4).limit(2)
-		//db.reports.count()
 
-
-    	
-    	dataset.Records = rows;
+    	/*
     	dataset.Result = "OK";
-    	
-    	dataset.jtStartIndex = jtStartIndex;
-    	dataset.jtPageSize = jtPageSize;
-    	//dataset.jtSorting = 'date ASC';
-    	dataset.TotalRecordCount = 16;
-
+    	dataset.Records = rows;
 
         if (err) return next(err);
-        res.json(dataset);
+        res.send(dataset);*/
+          	var total = Report.count();
+        	total.exec(function(err , count){
+        	var  jtPageSize = req.query.jtPageSize;
+    		var jtStartIndex =  req.query.jtStartIndex;
+        	dataset.Result = "OK";
+        	dataset.jtStartIndex = jtStartIndex;
+    		dataset.jtPageSize = jtPageSize;
+    		dataset.TotalRecordCount = count;
+    		dataset.Records = rows;
+
+        	res.send(dataset);
+        })
     });
 
 })
@@ -222,7 +247,6 @@ app.get('/reports' , function(req , res){
     	
     	dataset.Result = "OK";
     	dataset.Records = rows;
-    	dataset.TotalRecordCount = 5;
 
         if (err) return next(err);
         res.send(dataset);
