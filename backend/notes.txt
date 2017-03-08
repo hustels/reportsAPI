@@ -5,11 +5,11 @@ db.reports.insert({
 	specification:  'Sql_CRA_Es015svpwb001_Dia_Full_L-D05h',
 	hostfilesystem: 'ESDC1SVP005566',
 	type: 'Full',
-	reprocessed: 'Si',
+	reprocessed: 'No',
 	newsession: '05-80',
 	incident: 'IM000004555',
 	link: 'wwww.service.org',
-	endok:  'S',
+	endok:  'Si',
 	notes:  'Tras relanzar mas de dos veces termina correctamente'
 })
 

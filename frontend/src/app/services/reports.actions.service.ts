@@ -22,12 +22,12 @@ export class ReportActionsService {
 		    headers: {'Access-Control-Allow-Origin': '*' },
 				}
 			,
-            title: 'Report table',
+            title: 'Backups fallidos',
             paging: true, //Enable paging
             pageSize: 5,
-            selecting:  true,
-            selectingCheckboxes: true,
-            multiselect: true,
+            //åselecting:  true,
+            //åselectingCheckboxes: true,
+            //åmultiselect: true,
             actions: {
                 listAction: 'http://localhost:8080/reports',
                 createAction: 'http://localhost:8080/reports/add',
@@ -43,7 +43,18 @@ export class ReportActionsService {
                 environment: {
                     title: 'Entorno',
                     width: '4%',
-                    options: { 'default': '----' , 'Televent': 'Televent', 'Global': 'Global' , 'Barcelona': 'Barcelona' }
+                    options: { 'default': '----' , 
+                                        'Australia': 'Australia' ,
+
+                                        'Barcelona': 'Barcelona' ,
+                                        'China': 'China' ,
+                                        'Coruna': 'Coruña' ,
+                                        'Francia': 'Francia' ,
+                                         'Global': 'Global' ,
+                                        'Televent': 'Televent',
+                                         'Vicalvaro': 'Vicalvaro' 
+                                        
+                                          }
                 },
                 date: {
                     title: 'Fecha',
@@ -99,6 +110,7 @@ export class ReportActionsService {
             formCreated: function (event:any, data:any) {
               
                 data.form.validationEngine();
+                $('#Edit-date').datetimepicker();
             },
             //Validate form when it is being submitted
             formSubmitting: function (event:any, data:any) {
@@ -124,26 +136,41 @@ export class ReportActionsService {
             formClosed: function (event:any, data:any) {
                 data.form.validationEngine('hide');
                 data.form.validationEngine('detach');
+            },
+            recordUpdated: function(){
+                setRowsColor();
+            },
+            rowInserted: function(){
+                setRowsColor();
             }
         });
 
+        
 
 		(<any>$('#ReportTableContainer')).jtable('load');
 
 		
 		
+        function setRowsColor(){
+         $(".jtable tr:gt(0)").each(function () {
+        var this_row = $(this);
+        var endok = $.trim(this_row.find('td:eq(9)').html());//td:eq(0) means first td of this row
+       // jtable-selecting-column
+        if(endok == 'Si'){
+          //00FF00
+          $(this_row).css({"background": "#5ADA5A"});
+        }
+         if(endok == 'No'){
+          //00FF00
+          $(this_row).css({"background": "#FF5050"});
+        }
 
-		/*
-		setTimeout(function(){
-					$('.jtable tr').each(function(){
-		    $(this).find('td').each(function(){
-		        //do your stuff, you can use $(this) to get current cell
+    });
 
-		        console.log(this);
-		    })
-		})
+        }
 
-		} , 2000) */
+		
+		setTimeout( setRowsColor, 100)
 
 	}
 }

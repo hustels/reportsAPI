@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var ReportActionsService = (function () {
     function ReportActionsService() {
     }
@@ -22,12 +21,12 @@ var ReportActionsService = (function () {
                 dataType: 'json',
                 headers: { 'Access-Control-Allow-Origin': '*' },
             },
-            title: 'Report table',
+            title: 'Backups fallidos',
             paging: true,
             pageSize: 5,
-            selecting: true,
-            selectingCheckboxes: true,
-            multiselect: true,
+            //åselecting:  true,
+            //åselectingCheckboxes: true,
+            //åmultiselect: true,
             actions: {
                 listAction: 'http://localhost:8080/reports',
                 createAction: 'http://localhost:8080/reports/add',
@@ -42,7 +41,16 @@ var ReportActionsService = (function () {
                 environment: {
                     title: 'Entorno',
                     width: '4%',
-                    options: { 'default': '----', 'Televent': 'Televent', 'Global': 'Global', 'Barcelona': 'Barcelona' }
+                    options: { 'default': '----',
+                        'Australia': 'Australia',
+                        'Barcelona': 'Barcelona',
+                        'China': 'China',
+                        'Coruna': 'Coruña',
+                        'Francia': 'Francia',
+                        'Global': 'Global',
+                        'Televent': 'Televent',
+                        'Vicalvaro': 'Vicalvaro'
+                    }
                 },
                 date: {
                     title: 'Fecha',
@@ -94,6 +102,7 @@ var ReportActionsService = (function () {
             //Initialize validation logic when a form is created
             formCreated: function (event, data) {
                 data.form.validationEngine();
+                $('#Edit-date').datetimepicker();
             },
             //Validate form when it is being submitted
             formSubmitting: function (event, data) {
@@ -115,20 +124,31 @@ var ReportActionsService = (function () {
             formClosed: function (event, data) {
                 data.form.validationEngine('hide');
                 data.form.validationEngine('detach');
+            },
+            recordUpdated: function () {
+                setRowsColor();
+            },
+            rowInserted: function () {
+                setRowsColor();
             }
         });
         $('#ReportTableContainer').jtable('load');
-        /*
-        setTimeout(function(){
-                    $('.jtable tr').each(function(){
-            $(this).find('td').each(function(){
-                //do your stuff, you can use $(this) to get current cell
-
-                console.log(this);
-            })
-        })
-
-        } , 2000) */
+        function setRowsColor() {
+            $(".jtable tr:gt(0)").each(function () {
+                var this_row = $(this);
+                var endok = $.trim(this_row.find('td:eq(9)').html()); //td:eq(0) means first td of this row
+                // jtable-selecting-column
+                if (endok == 'Si') {
+                    //00FF00
+                    $(this_row).css({ "background": "#5ADA5A" });
+                }
+                if (endok == 'No') {
+                    //00FF00
+                    $(this_row).css({ "background": "#FF5050" });
+                }
+            });
+        }
+        setTimeout(setRowsColor, 100);
     };
     return ReportActionsService;
 }());
