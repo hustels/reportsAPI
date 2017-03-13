@@ -478,12 +478,19 @@ div.jtable-busy-message {
 }
 div.jtable-main-container div.jtable-title {
   background: #ffa366;
-  background: -moz-linear-gradient(top, #ffa366 0%, #da5700 100%);
+  /* background: -moz-linear-gradient(top, #ffa366 0%, #da5700 100%);  
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffa366), color-stop(100%, #da5700));
   background: -webkit-linear-gradient(top, #ffa366 0%, #da5700 100%);
   background: -o-linear-gradient(top, #ffa366 0%, #da5700 100%);
   background: -ms-linear-gradient(top, #ffa366 0%, #da5700 100%);
-  background: linear-gradient(to bottom, #ffa366 0%, #da5700 100%);
+  background: linear-gradient(to bottom, #ffa366 0%, #da5700 100%); cheikh
+  */
+  background: -moz-linear-gradient(top, #F3CA26 0%, #F3CA26 100%);  
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F3CA26), color-stop(100%, #da5700));
+  background: -webkit-linear-gradient(top, #F3CA26 0%, #F3CA26 100%);
+  background: -o-linear-gradient(top, #F3CA26 0%, #F3CA26 100%);
+  background: -ms-linear-gradient(top, #F3CA26 0%, #F3CA26 100%);
+  background: linear-gradient(to bottom, #F3CA26 0%, #F3CA26 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa366', endColorstr='#da5700', GradientType=0);
   border-color: #804620;
 }

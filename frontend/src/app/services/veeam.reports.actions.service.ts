@@ -1,4 +1,4 @@
-export class ReportActionsService {
+export class VeeamReportActionsService {
 
 		drawReportsTable(){
 		(<any>$('#ReportTableContainer')).jtable({
@@ -29,10 +29,10 @@ export class ReportActionsService {
             //åselectingCheckboxes: true,
             //åmultiselect: true,
             actions: {
-                listAction: 'http://localhost:8080/reports',
-                createAction: 'http://localhost:8080/reports/add',
-                updateAction: 'http://localhost:8080/reports/update',
-                deleteAction: 'http://localhost:8080/reports/delete'
+                listAction: 'http://localhost:8080/reports/veeam',
+                createAction: 'http://localhost:8080/reports/veeam/add',
+                updateAction: 'http://localhost:8080/reports/veeam/update',
+                deleteAction: 'http://localhost:8080/reports/veeam/delete'
                 
             },
             fields: {
@@ -42,14 +42,11 @@ export class ReportActionsService {
                 },
                 environment: {
                     title: 'Entorno',
-                    width: '4%',
+                    width: '5%',
                     options: { 'default': '----' , 
                                         'Australia': 'Australia' ,
 
                                         'Barcelona': 'Barcelona' ,
-                                        'China': 'China' ,
-                                        'Coruna': 'Coruña' ,
-                                        'Francia': 'Francia' ,
                                          'Global': 'Global' ,
                                         'Televent': 'Televent',
                                          'Vicalvaro': 'Vicalvaro' 
@@ -58,43 +55,35 @@ export class ReportActionsService {
                 },
                 date: {
                     title: 'Fecha',
-                    width: '12%',
+                    width: '15%',
                     inputClass: 'validate[required]'
                 },
-                session: {
-                    title: 'Sesión',
-                    width: '4%',
+                retries: {
+                    title: 'Total retry',
+                    width: '10%',
                     inputClass: 'validate[required]',
                 },
                 specification: {
-                    title: 'Especificación',
-                    width: '15%',
+                    title: 'Nombre de job',
+                    width: '20%',
                     inputClass: 'validate[required]',
                     //create: false,
                     //edit: false
                 },
-                hostfilesystem: {
-                    title: 'Host / FS',
-                    width: '8%'
+                objects: {
+                    title: 'Objetos fallidos',
+                    width: '10%'
                 },
-                 type: {
-                    title: 'Tipo',
-                    width: '3%',
-                    options: {'default': '---' , 'FULL': 'FULL', 'INCR': 'INCR'}
-                },
+              
                 reprocessed: {
                     title: 'Relanzado?',
-                    width: '5%',
+                    width: '10%',
                     options: { 'default': '---', 'Si': 'Si', 'No': 'No'}
                 },
-                 newsession: {
-                    title: 'Nueva Session',
-                    width: '7%',
-                   
-                },
-                incident: {
+              
+                link: {
                     title: 'Incidencia',
-                    width: '6%'
+                    width: '10%'
                 },
                 endok: {
                     title: 'Fin ok?',
@@ -103,7 +92,7 @@ export class ReportActionsService {
                 },
                  notes: {
                     title: 'Observaciones',
-                    width: '13%'
+                    width: '20%'
                 },
             },
             //Initialize validation logic when a form is created
@@ -154,7 +143,7 @@ export class ReportActionsService {
         function setRowsColor(){
          $(".jtable tr:gt(0)").each(function () {
         var this_row = $(this);
-        var endok = $.trim(this_row.find('td:eq(9)').html());//td:eq(0) means first td of this row
+        var endok = $.trim(this_row.find('td:eq(7)').html());//td:eq(0) means first td of this row
        // jtable-selecting-column
         if(endok == 'Si'){
           //00FF00

@@ -16,6 +16,8 @@ var addreport_component_1 = require('./components/addreport.component');
 var user_component_1 = require('./components/user.component');
 var reports_component_1 = require('./components/reports.component');
 var app_component_1 = require('./app.component');
+var oracle_component_1 = require('./components/oracle.component');
+var veeam_component_1 = require('./components/veeam.component');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
@@ -23,7 +25,7 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routing_1.routing, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, reports_component_1.ReportComponent, user_component_1.UserComponent, addreport_component_1.AddReportComponent],
+            declarations: [app_component_1.AppComponent, reports_component_1.ReportComponent, user_component_1.UserComponent, addreport_component_1.AddReportComponent, veeam_component_1.VeeamComponent, oracle_component_1.OracleComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

@@ -50,3 +50,18 @@ body {
 
 
 
+/*  navbar background */
+.navbar-default{
+	background: #F3CA26;
+}
+
+div.jtable-title div.jtable-title-text {
+	background: #F3CA26;
+}
+div.jtable-title {
+	background: #F3CA26;
+}
+
+/* backgroup report table file path /app/vendor/jtable/themes/lightcolor/orange de la lina 480 a 49*/
+
+

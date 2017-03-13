@@ -7,6 +7,9 @@ import { ReportComponent } from './components/reports.component'
 import { AppComponent } from './app.component';
 import { AddReportComponent } from './components/addreport.component';
 
+import { VeeamComponent } from './components/veeam.component';
+import { OracleComponent}  from './components/oracle.component';
+
 
 
 const appRoutes: Routes = [
@@ -25,8 +28,15 @@ const appRoutes: Routes = [
 	{
 	path: 'reports/add',
 		component: AddReportComponent
+	},
+	{
+		path: 'reports/veeam',
+		component: VeeamComponent
+	},
+		{
+		path: 'reports/oracle',
+		component: OracleComponent
 	}
-	
 ];
 
 

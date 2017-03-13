@@ -1,4 +1,4 @@
-export class ReportActionsService {
+export class OracleReportActionsService {
 
 		drawReportsTable(){
 		(<any>$('#ReportTableContainer')).jtable({
@@ -29,10 +29,10 @@ export class ReportActionsService {
             //åselectingCheckboxes: true,
             //åmultiselect: true,
             actions: {
-                listAction: 'http://localhost:8080/reports',
-                createAction: 'http://localhost:8080/reports/add',
-                updateAction: 'http://localhost:8080/reports/update',
-                deleteAction: 'http://localhost:8080/reports/delete'
+                listAction: 'http://localhost:8080/reports/oracle',
+                createAction: 'http://localhost:8080/reports/oracle/add',
+                updateAction: 'http://localhost:8080/reports/oracle/update',
+                deleteAction: 'http://localhost:8080/reports/oracle/delete'
                 
             },
             fields: {
@@ -40,70 +40,57 @@ export class ReportActionsService {
                     key: true,
                     list: false
                 },
-                environment: {
-                    title: 'Entorno',
-                    width: '4%',
-                    options: { 'default': '----' , 
-                                        'Australia': 'Australia' ,
-
-                                        'Barcelona': 'Barcelona' ,
-                                        'China': 'China' ,
-                                        'Coruna': 'Coruña' ,
-                                        'Francia': 'Francia' ,
-                                         'Global': 'Global' ,
-                                        'Televent': 'Televent',
-                                         'Vicalvaro': 'Vicalvaro' 
-                                        
-                                          }
-                },
                 date: {
                     title: 'Fecha',
-                    width: '12%',
+                    width: '15%',
                     inputClass: 'validate[required]'
                 },
-                session: {
-                    title: 'Sesión',
-                    width: '4%',
+                dbname: {
+                    title: 'BD',
+                    width: '10%',
                     inputClass: 'validate[required]',
                 },
-                specification: {
-                    title: 'Especificación',
-                    width: '15%',
+                host: {
+                    title: 'Host',
+                    width: '10%',
                     inputClass: 'validate[required]',
                     //create: false,
                     //edit: false
                 },
-                hostfilesystem: {
-                    title: 'Host / FS',
-                    width: '8%'
+            
+                type: {
+                    title: 'Tipo?',
+                    width: '6%',
+                    options: { 'Diario': 'Diario', 'Semanal': 'Semanal', 'Mensual': 'Mensual'}
                 },
-                 type: {
-                    title: 'Tipo',
-                    width: '3%',
-                    options: {'default': '---' , 'FULL': 'FULL', 'INCR': 'INCR'}
+                lastbk: {
+                    title: 'Ultimo correcto',
+                    width: '16%',
+                    inputClass: 'validate[required]'
                 },
+                 numfailed: {
+                    title: 'Numero de BK erroneos',
+                    width: '15%'
+                },
+              
                 reprocessed: {
                     title: 'Relanzado?',
                     width: '5%',
                     options: { 'default': '---', 'Si': 'Si', 'No': 'No'}
                 },
-                 newsession: {
-                    title: 'Nueva Session',
-                    width: '7%',
-                   
-                },
-                incident: {
+              
+                link: {
                     title: 'Incidencia',
-                    width: '6%'
+                    width: '7%'
                 },
                 endok: {
                     title: 'Fin ok?',
-                    width: '5%',
+                    width: '6%',
                     options: { 'Si': 'Si', 'No': 'No'}
                 },
                  notes: {
                     title: 'Observaciones',
-                    width: '13%'
+                    width: '20%'
                 },
             },
             //Initialize validation logic when a form is created
@@ -111,6 +98,7 @@ export class ReportActionsService {
               
                 data.form.validationEngine();
                 (<any>$('#Edit-date')).datetimepicker();
+                (<any>$('#Edit-lastbk')).datetimepicker();
             },
             //Validate form when it is being submitted
             formSubmitting: function (event:any, data:any) {
@@ -154,7 +142,7 @@ export class ReportActionsService {
         function setRowsColor(){
          $(".jtable tr:gt(0)").each(function () {
         var this_row = $(this);
-        var endok = $.trim(this_row.find('td:eq(9)').html());//td:eq(0) means first td of this row
+        var endok = $.trim(this_row.find('td:eq(8)').html());//td:eq(0) means first td of this row
        // jtable-selecting-column
         if(endok == 'Si'){
           //00FF00
