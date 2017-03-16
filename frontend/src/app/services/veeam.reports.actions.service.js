@@ -12,7 +12,12 @@ var VeeamReportActionsService = (function () {
                         icon: '/app/static/images/excel.png',
                         text: 'Exportar a Excel',
                         click: function () {
-                            alert('clicked');
+                            $(".jtable").table2excel({
+                                // exclude CSS class
+                                exclude: ".noExl",
+                                name: "Veeam Backup",
+                                filename: "Veeam backup" //do not include extension
+                            });
                         }
                     }]
             },
@@ -90,7 +95,13 @@ var VeeamReportActionsService = (function () {
             //Initialize validation logic when a form is created
             formCreated: function (event, data) {
                 data.form.validationEngine();
-                $('#Edit-date').datetimepicker();
+                jQuery.datetimepicker.setLocale('es');
+                data.form.validationEngine();
+                $('#Edit-date').datetimepicker({
+                    format: 'd/m/Y H:i',
+                    lang: 'es',
+                    startDate: new Date() //moment(new Date()).format('DD/MM/YYYY')
+                });
             },
             //Validate form when it is being submitted
             formSubmitting: function (event, data) {
@@ -128,11 +139,11 @@ var VeeamReportActionsService = (function () {
                 // jtable-selecting-column
                 if (endok == 'Si') {
                     //00FF00
-                    $(this_row).css({ "background": "#5ADA5A" });
+                    $(this_row).css({ "background": "#98e698" }); //5ADA5A
                 }
                 if (endok == 'No') {
                     //00FF00
-                    $(this_row).css({ "background": "#FF5050" });
+                    $(this_row).css({ "background": "#ff7f7f" }); //FF5050
                 }
             });
         }
