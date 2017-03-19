@@ -8,22 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var veeam_reports_actions_service_1 = require('../services/veeam.reports.actions.service');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var veeam_reports_actions_service_1 = require("../services/veeam.reports.actions.service");
 var VeeamComponent = (function () {
     function VeeamComponent(reportacionts) {
         this.reportacionts = reportacionts;
         setTimeout(this.reportacionts.drawReportsTable, 100);
     }
-    VeeamComponent = __decorate([
-        core_1.Component({
-            selector: 'veeam',
-            templateUrl: 'app/components/templates/veeam.component.html',
-            providers: [veeam_reports_actions_service_1.VeeamReportActionsService]
-        }), 
-        __metadata('design:paramtypes', [veeam_reports_actions_service_1.VeeamReportActionsService])
-    ], VeeamComponent);
     return VeeamComponent;
 }());
+VeeamComponent = __decorate([
+    core_1.Component({
+        selector: 'veeam',
+        templateUrl: 'app/components/templates/veeam.component.html',
+        providers: [veeam_reports_actions_service_1.VeeamReportActionsService]
+    }),
+    __metadata("design:paramtypes", [veeam_reports_actions_service_1.VeeamReportActionsService])
+], VeeamComponent);
 exports.VeeamComponent = VeeamComponent;
 //# sourceMappingURL=veeam.component.js.map

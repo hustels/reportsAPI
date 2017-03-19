@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var reports_service_1 = require('../services/reports.service');
-var reports_actions_service_1 = require('../services/reports.actions.service');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var reports_service_1 = require("../services/reports.service");
+var reports_actions_service_1 = require("../services/reports.actions.service");
 var ReportComponent = (function () {
     function ReportComponent(reportsService, reportacionts) {
         var _this = this;
@@ -25,17 +26,17 @@ var ReportComponent = (function () {
         });
         //this.drawReportsTable();
     }
-    ReportComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'reports',
-            templateUrl: './templates/reports.component.html',
-            //styleUrls: ['./app.component.css']
-            providers: [reports_service_1.ReportService, reports_actions_service_1.ReportActionsService]
-        }), 
-        __metadata('design:paramtypes', [reports_service_1.ReportService, reports_actions_service_1.ReportActionsService])
-    ], ReportComponent);
     return ReportComponent;
 }());
+ReportComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'reports',
+        templateUrl: './templates/reports.component.html',
+        //styleUrls: ['./app.component.css']
+        providers: [reports_service_1.ReportService, reports_actions_service_1.ReportActionsService]
+    }),
+    __metadata("design:paramtypes", [reports_service_1.ReportService, reports_actions_service_1.ReportActionsService])
+], ReportComponent);
 exports.ReportComponent = ReportComponent;
 //# sourceMappingURL=reports.component.js.map
