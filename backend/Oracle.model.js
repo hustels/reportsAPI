@@ -4,11 +4,13 @@ var Schema = mongoose.Schema;
 
 var OracleSchema = new Schema({
 	
-	date: { type: Date},
+	//date: { type: Date},
+	date: String,
 	dbname:  String,
 	host:  String,
 	type:  String,
-	lastbk: { type: Date},
+	//lastbk: { type: Date}, 
+	lastbk: String,
 	numfailed:  String,
 	reprocessed: String,
 	link: String,
