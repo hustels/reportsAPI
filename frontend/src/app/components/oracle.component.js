@@ -8,23 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var oracle_reports_actions_service_1 = require("../services/oracle.reports.actions.service");
+var core_1 = require('@angular/core');
+var oracle_reports_actions_service_1 = require('../services/oracle.reports.actions.service');
 var OracleComponent = (function () {
     function OracleComponent(reportacionts) {
         this.reportacionts = reportacionts;
         setTimeout(this.reportacionts.drawReportsTable, 100);
     }
+    OracleComponent = __decorate([
+        core_1.Component({
+            selector: 'veeam',
+            templateUrl: 'app/components/templates/oracle.component.html',
+            providers: [oracle_reports_actions_service_1.OracleReportActionsService]
+        }), 
+        __metadata('design:paramtypes', [oracle_reports_actions_service_1.OracleReportActionsService])
+    ], OracleComponent);
     return OracleComponent;
 }());
-OracleComponent = __decorate([
-    core_1.Component({
-        selector: 'veeam',
-        templateUrl: 'app/components/templates/oracle.component.html',
-        providers: [oracle_reports_actions_service_1.OracleReportActionsService]
-    }),
-    __metadata("design:paramtypes", [oracle_reports_actions_service_1.OracleReportActionsService])
-], OracleComponent);
 exports.OracleComponent = OracleComponent;
 //# sourceMappingURL=oracle.component.js.map

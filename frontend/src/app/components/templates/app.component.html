@@ -18,7 +18,7 @@
                 <ul class="nav navbar-nav navbar-right" id="nav-list">
                     <li><a routerLink="/" > <i class="home icon" id="home-icon"></i>Home | </a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown"><span>Reportes</span> Backup</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"> Backups</a>
                         <ul class="dropdown-menu" id="dropdown-nav-list">
                             <!--<li><a routerLink="/reports/add"> <i class="write icon"></i>Add report</a></li> -->
                             <li><a routerLink="/reports">HP Dataprotector</a></li>
@@ -31,13 +31,90 @@
                             <li><a href="/reports/oracle">Oracle Backups</a></li>
                         </ul>
                     </li>
-                    <li><a routerLink="/user/profile"><span>User</span>   Profile</a></li>
+                    <li><a routerLink="/user/profile">  Profile</a></li>
                     <!--<li><a href="#"><span>for</span>   Partners</a></li> -->
                     <li><a href="#">Login</a></li>
+                    <li class="notification-container"  >
+
+                        <i class="fa fa-bell">  </i>  &nbsp;
+                       
+                        <span class="notification-counter" >1</span>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
       
     </nav>
+
 </header>
 <router-outlet></router-outlet>
+
+<style type="text/css">
+
+
+    .notification-container {
+    position: relative;
+    width: auto;
+    height: auto;
+    top: 15px;
+    left: auto;
+
+
+    /* left: 15px;*/
+    
+    i {
+        color: #fff;
+    }
+}
+
+.notification-counter {   
+    position: absolute;
+    top: -2px;
+    left: 12px;
+    
+    background-color: rgba(212, 19, 13, 1);
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 3px;
+    font: 10px Verdana;
+
+}
+
+
+
+.fake-notification {
+    font: 10px Arial;
+    margin-top: 50px;
+}
+.fa.fa-bell{
+    font-size: 1.5em;
+    color: gray;
+}
+</style>
+
+<script type="text/javascript">
+/*
+    $counter = $('.notification-counter')
+    val = parseInt $counter.text()
+    val++
+    
+    # Animation
+    $counter
+    .css({opacity: 0})
+    .text(val)
+    .css({top: '-10px'})
+    .transition({top: '-2px', opacity: 1})
+
+    $(document).ready(function(){
+        alert('ok');
+        setTimeout(function(){
+            alert('timeo');
+            $('.notification-counter').css('display':  'normal');
+        }, 5000);
+    })
+
+    */
+
+
+</script>

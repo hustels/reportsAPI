@@ -30,8 +30,42 @@ app.get('/' , function(req , res){
 
 
 
+
+// realtime
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  io.emit('message', "Message from the server");
+});
+
+io.on('get-notifications', function(socket){
+  io.emit('message', "Message from the server");
+
+  console.log('getting messages');
+});
+
+
+
+
+
+
+
+http.listen(port , function(){
+  console.log('listening on port ' + port);
+});
+
+
+/*
+
 // SERVER LISTENING AND RUNNING 
 
 app.listen(port, function(){
 	console.log('listening on port ' + port);
 });
+
+*/
